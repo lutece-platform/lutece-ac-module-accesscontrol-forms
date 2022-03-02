@@ -1,0 +1,14 @@
+<#if entryTypeList?has_content >
+	<#list entryTypeList as entryType >
+		<@formGroup labelFor='list_code_questions' labelKey='#i18n{module.accesscontrol.form.modify_handler.question.title}' mandatory=true>
+			<@select name='list_code_questions' id='list_code_questions' items=code_list default_value='${entryType.codeQuestion!}' />
+		</@formGroup>
+	</#list>
+<#else>
+	<@formGroup labelFor='list_code_questions' labelKey='#i18n{module.accesscontrol.form.modify_handler.question.title}' mandatory=true>
+		<@select name='list_code_questions' id='list_code_questions' items=code_list />
+	</@formGroup>
+	<@formGroup labelFor='list_code_questions' labelKey='#i18n{module.accesscontrol.form.modify_handler.question.title}' mandatory=true>
+		<@select name='list_code_questions' id='list_code_questions' items=code_list />
+	</@formGroup>
+</#if>

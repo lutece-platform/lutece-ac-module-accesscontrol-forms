@@ -6,5 +6,11 @@
 
     <bean id="accesscontrol-forms.entryTypeDataHandlerConfigDao" class="fr.paris.lutece.plugins.accesscontrol.modules.forms.business.EntryTypeDataHandlerConfigDao" />
     
+    <bean id="accesscontrol-forms.entryTypeDataHandlerMultipleConfigDao" class="fr.paris.lutece.plugins.accesscontrol.modules.forms.business.EntryTypeDataHandlerMultipleConfigDao" />
+    
+    <bean id="accesscontrol-forms.entryTypeDao" class="fr.paris.lutece.plugins.accesscontrol.modules.forms.business.EntryTypeDao" />
+    
     <bean id="accesscontrol-forms.entryTypeDataHandler" class="fr.paris.lutece.plugins.accesscontrol.modules.forms.service.EntryTypeDataHandler" />
+    
+    <bean id="accesscontrol-forms.entryTypeDataHandlerMultiple" class="fr.paris.lutece.plugins.accesscontrol.modules.forms.service.EntryTypeDataHandlerMultiple" />
 </beans>
