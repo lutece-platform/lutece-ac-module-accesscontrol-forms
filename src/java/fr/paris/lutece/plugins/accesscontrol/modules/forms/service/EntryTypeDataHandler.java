@@ -10,7 +10,9 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
+import jakarta.servlet.http.HttpServletRequest;
 
 import fr.paris.lutece.plugins.accesscontrol.business.AccessController;
 import fr.paris.lutece.plugins.accesscontrol.modules.forms.business.EntryTypeDataHandlerConfig;
@@ -27,9 +29,11 @@ import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
 import fr.paris.lutece.util.ReferenceList;
 
+@ApplicationScoped
+@Named( EntryTypeDataHandler.BEAN_NAME )
 public class EntryTypeDataHandler implements IPersistentDataHandler
 {
-    private static final String BEAN_NAME = "accesscontrol-forms.entryTypeDataHandler";
+    public static final String BEAN_NAME = "accesscontrol-forms.entryTypeDataHandler";
     private static final String HANDLER_NAME = "module.accesscontrol.forms.handler.entrytype.name";
     
     private static final String MARK_CONFIG = "config";
