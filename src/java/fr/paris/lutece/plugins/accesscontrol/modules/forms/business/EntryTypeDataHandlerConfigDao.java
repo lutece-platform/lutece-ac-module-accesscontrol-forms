@@ -2,7 +2,9 @@ package fr.paris.lutece.plugins.accesscontrol.modules.forms.business;
 
 import fr.paris.lutece.portal.service.plugin.Plugin;
 import fr.paris.lutece.util.sql.DAOUtil;
+import jakarta.enterprise.context.ApplicationScoped;
 
+@ApplicationScoped
 public class EntryTypeDataHandlerConfigDao implements IEntryTypeDataHandlerConfigDao
 {
     public static final String BEAN_NAME = "accesscontrol-forms.entryTypeDataHandlerConfigDao";

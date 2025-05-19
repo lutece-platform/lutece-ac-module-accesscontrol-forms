@@ -1,5 +1,7 @@
 package fr.paris.lutece.plugins.accesscontrol.modules.forms.business;
 
+import org.junit.jupiter.api.Test;
+
 import fr.paris.lutece.test.LuteceTestCase;
 
 public class EntryTypeDataHandlerConfigBusinessTest extends LuteceTestCase
@@ -8,6 +10,7 @@ public class EntryTypeDataHandlerConfigBusinessTest extends LuteceTestCase
     private static final String CODE_QUESTION_1 = "code1";
     private static final String CODE_QUESTION_2 = "code2";
     
+    @Test
     public void testCRUD( )
     {
         EntryTypeDataHandlerConfig config = new EntryTypeDataHandlerConfig( );
@@ -27,6 +30,6 @@ public class EntryTypeDataHandlerConfigBusinessTest extends LuteceTestCase
         
         EntryTypeDataHandlerConfigHome.remove( ID_CONTROLLER );
         loaded = EntryTypeDataHandlerConfigHome.findByPrimaryKey( ID_CONTROLLER );
-        assertNotNull( loaded );
+        assertNull( loaded );
     }
 }
