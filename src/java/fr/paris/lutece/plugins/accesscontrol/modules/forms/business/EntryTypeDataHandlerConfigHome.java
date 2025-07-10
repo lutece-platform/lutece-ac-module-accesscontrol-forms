@@ -2,11 +2,11 @@ package fr.paris.lutece.plugins.accesscontrol.modules.forms.business;
 
 import fr.paris.lutece.plugins.accesscontrol.util.AccessControlUtils;
 import fr.paris.lutece.portal.service.plugin.Plugin;
-import fr.paris.lutece.portal.service.spring.SpringContextService;
+import jakarta.enterprise.inject.spi.CDI;
 
 public final class EntryTypeDataHandlerConfigHome
 {
-    private static IEntryTypeDataHandlerConfigDao _dao = SpringContextService.getBean( EntryTypeDataHandlerConfigDao.BEAN_NAME );
+    private static IEntryTypeDataHandlerConfigDao _dao = CDI.current( ).select( IEntryTypeDataHandlerConfigDao.class ).get( );
     private static Plugin _plugin = AccessControlUtils.getPlugin( );
     
     /**
