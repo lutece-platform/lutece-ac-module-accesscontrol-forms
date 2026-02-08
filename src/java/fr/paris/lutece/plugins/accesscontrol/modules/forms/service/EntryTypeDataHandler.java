@@ -19,9 +19,16 @@ import fr.paris.lutece.plugins.accesscontrol.service.IPersistentDataHandler;
 import fr.paris.lutece.plugins.forms.business.FormQuestionResponse;
 import fr.paris.lutece.plugins.forms.business.Question;
 import fr.paris.lutece.plugins.forms.business.QuestionHome;
+import fr.paris.lutece.plugins.forms.service.entrytype.EntryTypeCheckBox;
+import fr.paris.lutece.plugins.forms.service.entrytype.EntryTypeRadioButton;
+import fr.paris.lutece.plugins.forms.service.entrytype.EntryTypeSelect;
 import fr.paris.lutece.plugins.forms.web.FormResponseManager;
 import fr.paris.lutece.plugins.genericattributes.business.Entry;
+import fr.paris.lutece.plugins.genericattributes.business.Field;
+import fr.paris.lutece.plugins.genericattributes.business.FieldHome;
 import fr.paris.lutece.plugins.genericattributes.business.Response;
+import fr.paris.lutece.plugins.genericattributes.service.entrytype.EntryTypeServiceManager;
+import fr.paris.lutece.plugins.genericattributes.service.entrytype.IEntryTypeService;
 import fr.paris.lutece.portal.business.accesscontrol.AccessControlSessionData;
 import fr.paris.lutece.portal.service.i18n.I18nService;
 import fr.paris.lutece.portal.service.template.AppTemplateService;
@@ -125,6 +132,14 @@ public class EntryTypeDataHandler implements IPersistentDataHandler
         response.setEntry( entry );
         response.setResponseValue( (String) data );
         response.setIterationNumber( -1 );
+        
+        IEntryTypeService entryTypeService = EntryTypeServiceManager.getEntryTypeService(entry);
+        if (entryTypeService instanceof EntryTypeSelect || entryTypeService instanceof EntryTypeRadioButton 
+        		|| entryTypeService instanceof EntryTypeCheckBox)
+        {
+        	Field field = FieldHome.findByPrimaryKey(Integer.valueOf((String) data));
+        	response.setField(field);
+        }
         
         List<FormQuestionResponse> listResponsesTemp = new ArrayList<>( );
         FormQuestionResponse formQuestionResponse = new FormQuestionResponse( );
